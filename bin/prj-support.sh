@@ -48,10 +48,10 @@ function create_projects() {(
     for prj in $* ; do
 	p=${PRJ_PREFIX}-$prj
 	oc_adm adm new-project $p $NODE_SELECTOR
-	if [ -z "$PRJ_LABEL" ] ; then
-	    echo "PRJ_LABEL node defined, labeling skipped"
+	if [ -z "$LABELS" ] ; then
+	    echo "LABEL not defined, labeling skipped"
 	else
-	    oc_adm label ns $p $PRJ_LABEL
+	    oc_adm label ns $p $LABELS
 	fi
     done
 )}
