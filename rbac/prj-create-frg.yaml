@@ -1,0 +1,93 @@
+apiVersion: authorization.openshift.io/v1
+kind: ClusterRole
+metadata:
+  annotations:
+    openshift.io/description: A user that can create a project with node-selector and other attributes
+    openshift.io/reconcile-protect: "false"
+  labels:
+    kubernetes.io/bootstrapping: rbac-custom-rule
+    rbac.authorization.k8s.io/aggregate-to-cust-cluster-adm: "true"
+  name: prj-create-frg
+rules:
+- apiGroups:
+  - project.openshift.io
+  attributeRestrictions: null
+  resources:
+  - projects
+  verbs:
+  - create
+  - get
+#- apiGroups:
+#  - rbac.authorization.k8s.io
+#  attributeRestrictions: null
+#  resources:
+#  - rolebindings
+#  verbs:
+#  - create
+#  - list
+- apiGroups:
+  - ""
+  attributeRestrictions: null
+  resources:
+  - resourcequotas
+  - resourcequotas/status
+  verbs:
+  - create
+  - delete
+  - deletecollection
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - ""
+  attributeRestrictions: null
+  resources:
+  - resourcequotausages
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - ""
+  - quota.openshift.io
+  attributeRestrictions: null
+  resources:
+  - appliedclusterresourcequotas
+  verbs:
+  - get
+  - list
+  - watch
+#- apiGroups:
+#  - ""
+#  - "image.openshift.io"
+#  attributeRestrictions: null
+#  resources:
+#  - imagestreams
+#  - imagestreamtags
+#  - imagestreams/layers
+#  verbs:
+#  - create
+#  - get
+#  - list
+#  - update
+#- apiGroups:
+#  - ""
+#  - "build.openshift.io"
+#  attributeRestrictions: null
+#  resources:
+#  - builds
+#  - builds/details
+#  verbs:
+#  - create
+#  - get
+#  - list
+#  - update
+#- apiGroups:
+#  - "automationbroker.io"
+#  attributeRestrictions: null
+#  resources:
+#  - access
+#  verbs:
+#  - access

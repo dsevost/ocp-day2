@@ -1,0 +1,13 @@
+aggregationRule:
+  clusterRoleSelectors:
+  - matchLabels:
+      rbac.authorization.k8s.io/aggregate-to-cust-prj-adm: "true"
+apiVersion: authorization.openshift.io/v1
+kind: ClusterRole
+metadata:
+  annotations:
+    openshift.io/description: A user that has restrigted admins rights within a project
+      and can manage projects limits
+  labels:
+    kubernetes.io/bootstrapping: rbac-custom-rule
+  name: cust-prj-adm

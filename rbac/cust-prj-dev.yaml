@@ -1,0 +1,12 @@
+aggregationRule:
+  clusterRoleSelectors:
+  - matchLabels:
+      rbac.authorization.k8s.io/aggregate-to-cust-prj-dev: "true"
+apiVersion: authorization.openshift.io/v1
+kind: ClusterRole
+metadata:
+  annotations:
+    openshift.io/description: A user who can mamage applications at the project
+  labels:
+    kubernetes.io/bootstrapping: rbac-custom-rule
+  name: cust-prj-dev
