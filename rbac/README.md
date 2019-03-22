@@ -38,13 +38,12 @@ Permissions: manages user's and group's permissions over any projects and over a
 Permissions: manages user's and group's permissions over any projects and over all cluster, load and run images, manages networks, accessing to all logs
 
 ### Subsets of permissions
-1. Managing Quotas
-2. Managing Limits
-3. Managing ImageStreams
-4. Run and scale Applications
-5. Having access to application's Logs
-6. Managing user's permissions
-7. Managing group's permissions
+1. Managing Limits
+2. Managing ImageStreams
+3. Run and scale Applications
+4. Having access to application's Logs
+5. Managing user's permissions
+6. Managing group's permissions
 
 ### Restrict for permissions
 1. Secrets
